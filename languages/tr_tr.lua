@@ -570,14 +570,14 @@ Sistem:
     },
     ['setgrouplang'] = {
         ['1'] = 'Bu grubun dili şu şekilde ayarlandı: %s!',
-        ['2'] = 'Bu grubun dili şu anda %s.\nLütfen bazı dizelerin henüz tercüme edilmediğine dikkat ediniz. Dilinizi değiştirmek isterseniz, aşağıdaki klavyeyi kullanarak birini seçin:',
+        ['2'] = 'Bu grubun dili şu anda %s.\nLütfen bazı dizelerin henüz tercüme edilmediğine dikkat ediniz.Çeviri @By_Azade tarafından yapılmıştır.Dilinizi değiştirmek isterseniz, aşağıdaki klavyeyi kullanarak birini seçin:',
         ['3'] = 'Kullanıcıları bu grupta aynı dili kullanmaya zorlama seçeneği şu anda devre dışı. Bu ayar /administrator den değiştirilmelidir, ancak işleri sizin için daha kolay hale getirmek için aşağıda bir düğme ekledim.',
         ['4'] = 'Etkin',
         ['5'] = 'Devre dışı'
     },
     ['setlang'] = {
         ['1'] = 'Diliniz ayarlandı %s!',
-        ['2'] = 'Diliniz şuanda %s.\nLütfen bazı dizelerin henüz tercüme edilmediğine dikkat ediniz. Dilinizi değiştirmek isterseniz, aşağıdaki klavyeyi kullanarak birini seçin:'
+        ['2'] = 'Diliniz şuanda %s.\nLütfen bazı dizelerin henüz tercüme edilmediğine dikkat ediniz.Çeviri @By_Azade tarafından yapılmıştır.Dilinizi değiştirmek isterseniz, aşağıdaki klavyeyi kullanarak birini seçin:'
     },
     ['setlink'] = {
         ['1'] = 'Doğru bir URL değil.',
