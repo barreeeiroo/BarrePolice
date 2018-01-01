@@ -523,9 +523,9 @@ Sistem:
         ['1'] = 'İsim: %s\nKimlik: %s\nTip: %s\nAçıklama: %s'
     },
     ['prime'] = {
-        ['1'] = 'Please enter a number between 1 and 99999.',
-        ['2'] = '%s is a prime number!',
-        ['3'] = '%s is NOT a prime number...'
+        ['1'] = ' 1 ve 99999 arası bir sayı giriniz',
+        ['2'] = '%s sayısı bir asal sayı!',
+        ['3'] = '%s sayısı bir asal sayı değil maalesef...'
     },
     ['promote'] = {
         ['1'] = 'Admini veya moderatörü yetkilendiremezsin.',
@@ -537,11 +537,11 @@ Sistem:
         ['2'] = 'Bunun için kayıtlı söz yok! Onların gönderdikleri bir mesajı /save komutunu kullanarak kaydedebilirsiniz.'
     },
     ['randomsite'] = {
-        ['1'] = 'Generate Another'
+        ['1'] = 'Yeni Oluştur'
     },
     ['randomword'] = {
-        ['1'] = 'Generate Another',
-        ['2'] = 'Your random word is <b>%s</b>!'
+        ['1'] = 'Yeni Oluştur',
+        ['2'] = 'Rastgele oluşturulan kelimen <b>%s</b>!'
     },
     ['report'] = {
         ['1'] = 'Lütfen grubun yöneticilerine bildirmek istediğiniz iletiyi yanıtlayın.',
@@ -652,16 +652,16 @@ Sistem:
         ['1'] = 'Hangi kullanıcı için oyla-banla özelliği kullanmak istiyorsun? Bu kullanıcıyı @kulanıcıadı şeklinde veya kullanıcı IDsi ile belirtebilirsin.',
         ['2'] = 'Admin için oyla-banla özelliği kullanılmaz',
         ['3'] = 'Oyla-banla özelliğini kullanamıyorum, kullanıcı gruptan ayılmış veya banlanmış.',
-        ['4'] = '[%s] Buradan banlanması gerekir mi %s? %s hemen yasaklanması için oylama gerekir, ve %s bunun için en az oylama kapalı olmalıdır',
+        ['4'] = 'Bu kullanıcının buradan banlanması için oylamaya ihtiyaç var mıdır.[%s]  %s? %s hemen banlanmasını istiyorsanız oy kullanın, bunun için en az %s oy kullanılmalıdır.',
         ['5'] = 'Evet [%s]',
         ['6'] = 'Hayır [%s]',
         ['7'] = '[%s] Buradan %s %s banlandı %s çünkü %s insanlar bunun için oy kullandılar.',
         ['8'] = 'En yüksek oy miktarına ulaşıldı, ancak, banlayamam %s - belki onlar oylama yapılmadan önce gruptan ayrılmışlardır? Bu eylemi gerçekleştirmek için yetkiniz yok',
         ['9'] = 'Onları %s [%s] banlayamam %s çünkü %s insanlar banlamak için karar vermemişler.',
-        ['10'] = 'Banlamak için oy kullandın %s [%s]!',
-        ['11'] = 'Oyun geri çekildi, butonu kullanarak tekrar oy kullanabilirsin.',
+        ['10'] = 'Banlaması için oy kullandın %s [%s]!',
+        ['11'] = 'Oy geri çekildi, butonu kullanarak tekrar oy kullanabilirsin.',
         ['12'] = 'Banlama kararı alındı %s [%s]!',
-        ['13'] = 'A vote-ban has already been opened for this user!'
+        ['13'] = 'Bu kullanıcı için oyla banla özelliği zaten açıldı!'
     },
     ['weather'] = {
         ['1'] = 'Konum ayarlamadın. /setloc <konum> komutunu kullanarak bir tane ayarla.',
