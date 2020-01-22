@@ -521,6 +521,7 @@ function mattata:process_plugin_extras()
     end
 
     -- Process NSFW Images
+    --[=====[
     if message.type ~= "private" and mattata.get_setting(message.chat.id, 'use administration') and mattata.get_setting(message.chat.id, 'nsfw enabled') and (((message.photo or (message.document and message.document.mime_type:match('^image/%a*'))) and mattata.get_setting(message.chat.id, 'nsfw images')) or ((message.video or (message.document and message.document.mime_type:match('^video/%a*'))) and mattata.get_setting(message.chat.id, 'nsfw videos')) or (message.sticker and mattata.get_setting(message.chat.id, 'nsfw stickers')) or ((message.document and message.document.mime_type:match('^video/%a*') and message.document.file_name == "giphy.mp4") and mattata.get_setting(message.chat.id, 'nsfw gifs'))) and not mattata.is_group_admin(message.chat.id, message.from.id) and not mattata.is_global_admin(message.from.id) then
         if mattata.is_trusted_user(message.chat.id, message.from.id) and mattata.get_setting(message.chat.id, 'trusted permissions nsfw') then else
             local file
@@ -605,6 +606,7 @@ function mattata:process_plugin_extras()
             end
         end
     end
+    --]=====]
 
     -- Process the BugReports
     if mattata.is_global_admin(message.from.id) and message.chat.id == configuration.bug_reports_chat and message.reply and message.reply.forward_from and not message.text:match('^[/!#]') then
@@ -1533,12 +1535,12 @@ function mattata:process_message()
             if mattata.get_setting(message.chat.id, 'send rules on join') then
                 keyboard = mattata.inline_keyboard():row(mattata.row():url_button(utf8.char(128218) .. ' ' .. language['welcome']['1'], 'https://t.me/' .. self.info.username .. '?start=' .. message.chat.id .. '_rules'))
             end
-            message = mattata.send_message(message, welcome_message, 'markdown', true, false, nil, keyboard)
             if mattata.get_value(message.chat.id, 'last welcome') then
-                mattata.delete_message(message.chat.id, mattata.get_value(message.chat.id, 'last welcome'))
-                redis:hset('chat:' .. chat_id .. ':values', 'last welcome', message.result.message_id)
+                mattata.delete_message(message.chat.id, tonumber(mattata.get_value(message.chat.id, 'last welcome')))
             end
-            return message
+            msg = mattata.send_message(message, welcome_message, 'markdown', true, false, nil, keyboard)
+            redis:hset('chat:' .. chat_id .. ':values', 'last welcome', tostring(msg.result.message_id))
+            return false
         end
         if mattata.get_setting(message.chat.id, 'use administration') and mattata.get_setting(message.chat.id, 'delete joingroup messages') then
             mattata.delete_message(message.chat.id, message.message_id)
