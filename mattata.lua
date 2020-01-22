@@ -1538,9 +1538,8 @@ function mattata:process_message()
             if mattata.get_value(message.chat.id, 'last welcome') then
                 mattata.delete_message(message.chat.id, tonumber(mattata.get_value(message.chat.id, 'last welcome')))
             end
-            msg = mattata.send_message(message, welcome_message, 'markdown', true, false, nil, keyboard)
+            local msg = mattata.send_message(message, welcome_message, 'markdown', true, false, nil, keyboard)
             redis:hset('chat:' .. chat_id .. ':values', 'last welcome', tostring(msg.result.message_id))
-            return false
         end
         if mattata.get_setting(message.chat.id, 'use administration') and mattata.get_setting(message.chat.id, 'delete joingroup messages') then
             mattata.delete_message(message.chat.id, message.message_id)
