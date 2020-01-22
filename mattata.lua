@@ -666,6 +666,7 @@ function mattata:process_plugin_extras()
     end
 
     -- Process the Pole plugin
+    --[=====[
     if not mattata.is_plugin_disabled('pole', message) and message.chat.type ~= 'private' then
         local date = os.date("%x")
         if (message.text:match('^'..mattata.case_insensitive_pattern('pole')) or message.text:match('^'..mattata.case_insensitive_pattern('oro'))) and not mattata.is_pole_done(message.chat.id, message.from.id) then
@@ -703,6 +704,7 @@ function mattata:process_plugin_extras()
             mattata.send_reply(message, message.from.first_name.." has done a FAIL, sad")
         end
     end
+    --]=====]
 
     -- If a user executes a command and it's not recognised, provide a response
     -- explaining what's happened and how it can be resolved.
