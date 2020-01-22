@@ -1531,7 +1531,12 @@ function mattata:process_message()
             if mattata.get_setting(message.chat.id, 'send rules on join') then
                 keyboard = mattata.inline_keyboard():row(mattata.row():url_button(utf8.char(128218) .. ' ' .. language['welcome']['1'], 'https://t.me/' .. self.info.username .. '?start=' .. message.chat.id .. '_rules'))
             end
-            return mattata.send_message(message, welcome_message, 'markdown', true, false, nil, keyboard)
+            message = mattata.send_message(message, welcome_message, 'markdown', true, false, nil, keyboard)
+            if mattata.get_value(message.chat.id, 'last welcome') then
+                mattata.delete_message(message.chat.id, mattata.get_value(message.chat.id, 'last welcome'))
+                redis:hset('chat:' .. chat_id .. ':values', 'last welcome', message.result.message_id)
+            end
+            return message
         end
         if mattata.get_setting(message.chat.id, 'use administration') and mattata.get_setting(message.chat.id, 'delete joingroup messages') then
             mattata.delete_message(message.chat.id, message.message_id)
