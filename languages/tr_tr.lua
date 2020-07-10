@@ -16,13 +16,13 @@ return {
         ['admin'] = 'Bu komutu kullanabilmeniz için grupta admin veya moderatör olmalısınız.',
         ['unknown'] = 'Bu kullanıcıyı tanımıyorum. Eğer onu bana tanıtmak isterseniz, mesajını bana yönlendirin.',
         ['generic'] = 'Hata oluştu!',
-        ['use'] = 'Bunu kullanmanıza izi yok!'
+        ['use'] = 'Bunu kullanmanıza izin yok!'
     },
     ['afk'] = {
         ['1'] = 'Üzgünüm, Bu özellik sadece aktif kullanıcılar için @kullanıcıadı şeklinde kullanılır!',
-        ['2'] = '%s klavyeden uzaklaşarak tekrar geri döndü %s!',
+        ['2'] = '%s Tekrar klavye başında! %s!',
         ['3'] = 'Not',
-        ['4'] = '%s şuan klavyeden uzaklaştı.%s'
+        ['4'] = '%s Şu an klavyeden uzaklaştı.%s'
     },
     ['antispam'] = {
         ['1'] = 'Kapalı',
@@ -33,7 +33,7 @@ return {
         ['6'] = '%s [%s] Anti-spam medya limitine ulaşıldığı  %s [%s] için %s [%s] gruptan atıldı [%s] .',
         ['7'] = 'Atıldı %s anti-spam medya limitini aştığı için [%s] .',
         ['8'] = 'Maksimum sınır 100.',
-        ['9'] = 'Minimum sınır is 1.',
+        ['9'] = 'Minimum sınır 1.',
         ['10'] = 'Aşağıdan %s anti-spam ayarlarını değiştirin:'
     },
     ['appstore'] = {
@@ -93,16 +93,16 @@ return {
         ['10'] = 'Bu mesaj geçersiz Markdown biçimlendirme içeriyor! Lütfen sözdiziminizi düzeltin ve tekrar deneyin.'
     },
     ['chuck'] = {
-        ['1'] = 'Click to send the result.'
+        ['1'] = 'Sonuçları göndermek için tıkla.'
     },
     ['clickbait'] = {
-        ['1'] = 'Generate Another'
+        ['1'] = 'Başka bir tane oluştur'
     },
     ['coinflip'] = {
-        ['1'] = 'The coin landed on:',
-        ['2'] = 'You were correct!',
-        ['3'] = 'You weren\'t correct, try again...',
-        ['4'] = 'Invalid arguments were given. You must specify your guess, it should be either \'heads\' or \'tails\'.'
+        ['1'] = 'Para yere düştü:',
+        ['2'] = 'Bildin!',
+        ['3'] = 'Bilemedin dostum,tekrar dene...',
+        ['4'] = 'Geçersiz argümanlar verildi. Tahmininizi belirtmelisiniz, \'heads(tura)\' veya \'tails(yazı)\ olmalı'.'
     },
     ['commandstats'] = {
         ['1'] = 'Bu sohbette hiçbir komut gönderilmedi!',
@@ -147,14 +147,14 @@ return {
         ['1'] = 'Lütfen Dogeify istediğiniz metni girin. Her cümle eğik çizgi veya yeni satırlar kullanılarak ayrılmalıdır.'
     },
     ['duckduckgo'] = {
-        ['1'] = 'I\'m not sure what that is!'
+        ['1'] = 'Bunun ne olduğu konusunda emin değilim!'
     },
     ['eightball'] = {
-        ['1'] = 'Yes.',
-        ['2'] = 'No.',
-        ['3'] = 'It is likely so.',
-        ['4'] = 'Well, uh... I\'d ask again later, if I were you.'
-    },
+        ['1'] = 'Evet.',
+        ['2'] = 'Hayır.',
+        ['3'] = 'Muhtemelen öyle.',
+        ['4'] = 'Peki, ah... Senin yerinde olsam, sonradan tekrar sorardım.'
+    }
     ['exec'] = {
         ['1'] = 'Lütfen kodunuzu yürütmek istediğiniz dili seçin:',
         ['2'] = 'Bir hata oluştu! Bağlantı zaman aşımına uğradı. Beni geride bırakmaya mı çalışıyordun?',
@@ -178,11 +178,11 @@ return {
         ['3'] = 'Daha fazla sonuç'
     },
     ['fortune'] = {
-        ['1'] = 'Click to send your fortune!'
+        ['1'] = 'Servetini göndermek için tıkla!'
     },
     ['frombinary'] = {
-        ['1'] = 'Please enter the binary value you would like to convert to a string.',
-        ['2'] = 'Malformed binary!'
+        ['1'] = 'Lütfen bir dizgeye dönüştürmek istediğiniz ikili değeri girin.',
+        ['2'] = 'Hatalı ikili!'
     },
     ['game'] = {
         ['1'] = 'Toplam kazanç: %s\nToplam kayıp: %s\nKalan: %s BarreCoins',
@@ -378,7 +378,7 @@ Sistem:
         ['9'] = 'Sonuç göndermek için tıklayın.'
     },
     ['lmgtfy'] = {
-        ['1'] = 'Let me Google that for you!'
+        ['1'] = 'Senin için Google da arayayım!'
     },
     ['location'] = {
         ['1'] = 'Ayarlanmış konumunuz yok. Yeni konum ayarlamak ister misiniz?'
@@ -412,8 +412,8 @@ Sistem:
         ['7'] = 'Resim',
         ['8'] = 'Kullanıcı adı geçmişi',
         ['9'] = 'Lütfen özellik seçiniz:',
-        ['10'] = 'Lütfen Minecraft oyuncusunun kullanıcı adını giriniz. (örnek: "By_Azade" By_Azade hakkında bilgi verecel).',
-        ['11'] = 'Minecraft usernames are between 3 and 16 characters long.'
+        ['10'] = 'Lütfen Minecraft oyuncusunun kullanıcı adını giriniz. (örnek: "Holytotem" Holytotem hakkında bilgi verecek).',
+        ['11'] = 'Minecraft kullanıcı adları 3 ila 16 karakter uzunluğundadır.'
     },
     ['mute'] = {
         ['1'] = 'Hangi kullanıcıyı susturmak istersiniz? Bu kullanıcıyı @kulanıcıadı şeklinde veya kullanıcı IDsi ile belirtebilirsin.',
@@ -493,7 +493,7 @@ Sistem:
         ['2'] = 'Takma adınız "%s"!'
     },
     ['ninegag'] = {
-        ['1'] = 'Read More'
+        ['1'] = 'Devamını oku'
     },
     ['optout'] = {
         ['1'] = 'Toplanan verileri göndermeyi için seçtiniz! /optout komutunu kullanın.',
@@ -605,7 +605,7 @@ Sistem:
     },
     ['statistics'] = {
         ['1'] = 'Bu sohbette hiç mesaj gönderilmedi!',
-        ['2'] = '<b>Statistics for:</b> %s\n\n%s\n<b>Total messages sent:</b> %s',
+        ['2'] = '<b>Buraya ait istatistikler:</b> %s\n\n%s\n<b>Toplam gönderilen mesaj:</b> %s',
         ['3'] = 'Bu sohbet istatistikleri sıfırlandı!',
         ['4'] = 'Bu sohbetin istatistiklerini sıfırlayamadım. Belki daha önce resetlendi?'
     },
