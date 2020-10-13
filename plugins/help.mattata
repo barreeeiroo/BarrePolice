@@ -1,5 +1,5 @@
 --[[
-    Copyright 2017 Diego Barreiro <diego@makeroid.io>
+    Copyright 2017 Diego Barreiro <diego@kodular.io>
     This code is licensed under the MIT. See LICENSE for details.
 ]]
 
@@ -238,12 +238,12 @@ function help:on_callback_query(callback_query, message, configuration, language
                     'https://t.me/joinchat/AAAAAEHCFLYFXDzX_SKvrg'
                 ):url_button(
                     language['help']['18'],
-                    'https://paypal.me/Makeroid'
+                    'https://paypal.me/Kodular'
                 )
             ):row(
                 mattata.row():url_button(
-                    "Makeroid",
-                    'https://t.me/Makeroid'
+                    "Kodular",
+                    'https://t.me/Kodular'
                 ):url_button(
                     "BarrePolice AI",
                     'https://t.me/BarrePoliceBot'
@@ -264,8 +264,8 @@ function help:on_callback_query(callback_query, message, configuration, language
             true,
             mattata.inline_keyboard():row(
                 mattata.row():url_button(
-                    'Makeroid',
-                    'https://t.me/Makeroid'
+                    'Kodular',
+                    'https://t.me/Kodular'
                 )
             ):row(
                 mattata.row():callback_data_button(
