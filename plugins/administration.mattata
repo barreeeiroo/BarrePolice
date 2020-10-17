@@ -24,20 +24,20 @@ end
 
 function administration.get_initial_keyboard(chat_id, page)
     if not mattata.get_setting(chat_id, 'use administration') then
-        return mattata.inline_keyboard():row(mattata.row():callback_data_button('Enable Administration', 'administration:' .. chat_id .. ':toggle'))
+        return mattata.inline_keyboard():row(mattata.row():callback_data_button('Yönetimi Etkinleştir', 'administration:' .. chat_id .. ':toggle'))
     end
     if not page or tonumber(page) <= 1 then
         return mattata.inline_keyboard()
-        :row(mattata.row():callback_data_button('Disable Administration', 'administration:' .. chat_id .. ':toggle'))
+        :row(mattata.row():callback_data_button('Yönetimi Devredışı Bırak', 'administration:' .. chat_id .. ':toggle'))
         :row(
             mattata.row()
             :callback_data_button('Anti-Spam Settings', 'antispam:' .. chat_id)
             :callback_data_button('Warning Settings', 'administration:' .. chat_id .. ':warnings')
         )
-        :row(mattata.row():callback_data_button('Vote-Ban Settings', 'administration:' .. chat_id .. ':voteban'))
+        :row(mattata.row():callback_data_button('Oyla-Banla Ayarları', 'administration:' .. chat_id .. ':voteban'))
         :row(
             mattata.row()
-            :callback_data_button('Welcome New Users?', 'administration:nil')
+            :callback_data_button('Hoş Geldin Mesajı', 'administration:nil')
             :callback_data_button(
                 mattata.get_setting(chat_id, 'welcome message') and utf8.char(9989) or utf8.char(10060),
                 'administration:' .. chat_id .. ':welcome_message:1'
@@ -45,7 +45,7 @@ function administration.get_initial_keyboard(chat_id, page)
         )
         :row(
             mattata.row()
-            :callback_data_button('Send Rules On Join?', 'administration:nil')
+            :callback_data_button('Katıldığında Kuralları Gönder', 'administration:nil')
             :callback_data_button(
                 mattata.get_setting(chat_id, 'send rules on join') and utf8.char(9989) or utf8.char(10060),
                 'administration:' .. chat_id .. ':rules_on_join:1'
@@ -53,7 +53,7 @@ function administration.get_initial_keyboard(chat_id, page)
         )
         :row(
             mattata.row()
-            :callback_data_button('Send Rules In Group?', 'administration:nil')
+            :callback_data_button('Katıldığında Kuralları Gönder', 'administration:nil')
             :callback_data_button(
                 mattata.get_setting(chat_id, 'send rules in group') and utf8.char(9989) or utf8.char(10060),
                 'administration:' .. chat_id .. ':rules_in_group:1'
@@ -61,17 +61,17 @@ function administration.get_initial_keyboard(chat_id, page)
         )
         :row(
             mattata.row()
-            :callback_data_button('Next', 'administration:' .. chat_id .. ':page:2')
+            :callback_data_button('İleri', 'administration:' .. chat_id .. ':page:2')
         )
         :row(
             mattata.row()
-            :callback_data_button('Exit', 'help:settings:'..chat_id)
+            :callback_data_button('Çık', 'help:settings:'..chat_id)
         )
     elseif tonumber(page) == 2 then
         return mattata.inline_keyboard()
         :row(
             mattata.row()
-            :callback_data_button('Word Filter', 'administration:nil')
+            :callback_data_button('Kelime Filtrele', 'administration:nil')
             :callback_data_button(
                 mattata.get_setting(chat_id, 'word filter') and 'On' or 'Off',
                 'administration:' .. chat_id .. ':word_filter:2'
@@ -100,7 +100,7 @@ function administration.get_initial_keyboard(chat_id, page)
         )
         :row(
             mattata.row()
-            :callback_data_button('Log Actions?', 'administration:' .. chat_id .. ':log:keyboard')
+            :callback_data_button('Kayırları Tut', 'administration:' .. chat_id .. ':log:keyboard')
             :callback_data_button(
                 mattata.get_setting(chat_id, 'log administrative actions') and utf8.char(9989) or utf8.char(10060),
                 'administration:' .. chat_id .. ':log:toggle'
@@ -113,7 +113,7 @@ function administration.get_initial_keyboard(chat_id, page)
         )
         :row(
             mattata.row()
-            :callback_data_button('Anti-Spam Action', 'administration:nil')
+            :callback_data_button('Anti-Spam Özelliği', 'administration:nil')
             :callback_data_button(
                 mattata.get_setting(chat_id, 'ban not kick') and 'Ban' or 'Kick',
                 'administration:' .. chat_id .. ':action:2'
@@ -121,7 +121,7 @@ function administration.get_initial_keyboard(chat_id, page)
         )
         :row(
             mattata.row()
-            :callback_data_button('Delete Commands?', 'administration:nil')
+            :callback_data_button('Komutları Sil', 'administration:nil')
             :callback_data_button(
                 mattata.get_setting(chat_id, 'delete commands') and utf8.char(9989) or utf8.char(10060),
                 'administration:' .. chat_id .. ':delete_commands:2'
@@ -129,7 +129,7 @@ function administration.get_initial_keyboard(chat_id, page)
         )
         :row(
             mattata.row()
-            :callback_data_button('Force Group Language?', 'administration:nil')
+            :callback_data_button('Grup Dilini Bul', 'administration:nil')
             :callback_data_button(
                 mattata.get_setting(chat_id, 'force group language') and utf8.char(9989) or utf8.char(10060),
                 'administration:' .. chat_id .. ':force_group_language:2'
@@ -137,19 +137,19 @@ function administration.get_initial_keyboard(chat_id, page)
         )
         :row(
             mattata.row()
-            :callback_data_button('Back', 'administration:' .. chat_id .. ':page:1')
-            :callback_data_button('Next', 'administration:' .. chat_id .. ':page:3')
+            :callback_data_button('Geri', 'administration:' .. chat_id .. ':page:1')
+            :callback_data_button('İleri', 'administration:' .. chat_id .. ':page:3')
         )
         :row(
             mattata.row()
-            :callback_data_button('Exit', 'help:settings:'..chat_id)
+            :callback_data_button('Çık', 'help:settings:'..chat_id)
         )
     elseif tonumber(page) >= 3
     then
         return mattata.inline_keyboard()
         :row(
             mattata.row()
-            :callback_data_button('Send Settings In Group?', 'administration:nil')
+            :callback_data_button('Ayarları Grupta Göster', 'administration:nil')
             :callback_data_button(
                 mattata.get_setting(chat_id, 'settings in group') and utf8.char(9989) or utf8.char(10060),
                 'administration:' .. chat_id .. ':settings_in_group:3'
@@ -157,34 +157,34 @@ function administration.get_initial_keyboard(chat_id, page)
         )
         :row(
             mattata.row()
-            :callback_data_button('Delete Reply On Action?', 'administration:nil')
+            :callback_data_button('Yanıtlanan Mesajı Sil, 'administration:nil')
             :callback_data_button(
                 mattata.get_setting(chat_id, 'delete reply on action') and utf8.char(9989) or utf8.char(10060),
                 'administration:' .. chat_id .. ':delete_reply_on_action:3'
             )
         )
-        :row(mattata.row():callback_data_button('Trusted Users Permissions', 'administration:' .. chat_id .. ':trusted_permissions'))
+        :row(mattata.row():callback_data_button('Güvenilir Kullanıcı Ayarları', 'administration:' .. chat_id .. ':trusted_permissions'))
         :row(
             mattata.row()
-            :callback_data_button('Notify Admins on Actions?', 'administration:nil')
+            :callback_data_button('Admini Bilgilendir', 'administration:nil')
             :callback_data_button(
                 mattata.get_setting(chat_id, 'notify admins actions') and utf8.char(9989) or utf8.char(10060),
                 'administration:' .. chat_id .. ':notify_admins_actions:3'
             )
         )
-        :row(mattata.row():callback_data_button('Trusted Users Permissions', 'administration:' .. chat_id .. ':trusted_permissions'))
+        :row(mattata.row():callback_data_button('Güvenilir Kullanıcı İzinleri', 'administration:' .. chat_id .. ':trusted_permissions'))
         :row(
             mattata.row()
-            :callback_data_button('Delete JoinGroup Messages?', 'administration:nil')
+            :callback_data_button('Grubu Katıldı Mesajını Sil', 'administration:nil')
             :callback_data_button(
                 mattata.get_setting(chat_id, 'delete joingroup messages') and utf8.char(9989) or utf8.char(10060),
                 'administration:' .. chat_id .. ':delete_joingroup_messages:3'
             )
         )
-        :row(mattata.row():callback_data_button('Trusted Users Permissions', 'administration:' .. chat_id .. ':trusted_permissions'))
+        :row(mattata.row():callback_data_button('Güvenilir Kullanıcı İzinleri', 'administration:' .. chat_id .. ':trusted_permissions'))
         :row(
             mattata.row()
-            :callback_data_button('Delete LeftGroup Messages?', 'administration:nil')
+            :callback_data_button('Gruptan Ayrıldı Mesajını Sil', 'administration:nil')
             :callback_data_button(
                 mattata.get_setting(chat_id, 'delete leftgroup messages') and utf8.char(9989) or utf8.char(10060),
                 'administration:' .. chat_id .. ':delete_leftgroup_messages:3'
@@ -192,16 +192,16 @@ function administration.get_initial_keyboard(chat_id, page)
         )
         :row(
             mattata.row()
-            :callback_data_button('Apply Global Blacklist?', 'administration:nil')
+            :callback_data_button('Genel Engellemeleri Aktifleştir', 'administration:nil')
             :callback_data_button(
                 mattata.get_setting(chat_id, 'apply global blacklist') and utf8.char(9989) or utf8.char(10060),
                 'administration:' .. chat_id .. ':apply_global_blacklist:3'
             )
         )
-        :row(mattata.row():callback_data_button('Back', 'administration:' .. chat_id .. ':page:2'))
+        :row(mattata.row():callback_data_button('Geri', 'administration:' .. chat_id .. ':page:2'))
         :row(
             mattata.row()
-            :callback_data_button('Exit', 'help:settings:'..chat_id)
+            :callback_data_button('Çık', 'help:settings:'..chat_id)
         )
     end
     return false
@@ -371,7 +371,7 @@ end
 
 function administration.get_logchat_settings(chat_id)
     if not mattata.get_setting(chat_id, 'log administrative actions') then
-        return mattata.inline_keyboard():row(mattata.row():callback_data_button('Enable LogChat', 'administration:' .. chat_id .. ':log:toggle'))
+        return mattata.inline_keyboard():row(mattata.row():callback_data_button('Kayıtları Tutmayı Etkinleştir', 'administration:' .. chat_id .. ':log:toggle'))
     end
     local keyboard = {
         ['inline_keyboard'] = {}
@@ -476,12 +476,12 @@ function administration.warn(message)
     ) then
         return mattata.send_reply(
             message,
-            'You must be an administrator to use this command!'
+            'Bu komutu kullanabilmek için grupta admin olmalısın!'
         )
     elseif not message.reply then
         return mattata.send_reply(
             message,
-            'You must use this command via reply to the targeted user\'s message.'
+            'Bu komut hedef kullanıcıyı yanıtlayarak kullanılmalıdır.'
         )
     elseif mattata.is_group_admin(
         message.chat.id,
@@ -489,7 +489,7 @@ function administration.warn(message)
     ) then
         return mattata.send_reply(
             message,
-            'The targeted user is an administrator in this chat.'
+            'Kullanıcı grupta admindir.'
         )
     end
     local name = message.reply.from.first_name
@@ -516,7 +516,7 @@ function administration.warn(message)
         if not success then
             return mattata.send_reply(
                 message,
-                'I couldn\'t ban that user. Please ensure that I\'m an administrator and that the targeted user isn\'t.'
+                'Bu kullanıcıyı banlayamıyorum.Lütfen grupta admin olduğumdan emin olunuz.'
             )
         end
         redis:hdel(
@@ -585,7 +585,7 @@ function administration:on_callback_query(callback_query, message, configuration
     then
         return mattata.answer_callback_query(
             callback_query.id,
-            'You\'re not an administrator in that chat!'
+            'Bu grupta admin değilsin.!'
         )
     end
     local keyboard
@@ -606,13 +606,13 @@ function administration:on_callback_query(callback_query, message, configuration
         then
             return mattata.answer_callback_query(
                 callback_query.id,
-                'The minimum number of upvotes required for a vote-ban is 2.'
+                'Minimum alt oyla-banla seçeneği 2 dir'
             )
         elseif tonumber(required_upvotes) > configuration.voteban.upvotes.maximum
         then
             return mattata.answer_callback_query(
                 callback_query.id,
-                'The maximum number of upvotes required for a vote-ban is 20.'
+                'Maksimum oyla-banla seçeneği 20dir.'
             )
         elseif tonumber(required_upvotes) == nil
         then
@@ -631,13 +631,13 @@ function administration:on_callback_query(callback_query, message, configuration
         then
             return mattata.answer_callback_query(
                 callback_query.id,
-                'The minimum number of downvotes required for a vote-ban is 2.'
+                'En düşük oyla-banla seçeneği 2 dir.'
             )
         elseif tonumber(required_downvotes) > configuration.voteban.downvotes.maximum
         then
             return mattata.answer_callback_query(
                 callback_query.id,
-                'The maximum number of downvotes required for a vote-ban is 20.'
+                'En yüksek oyla-banla seçeneği 2 dir.'
             )
         elseif tonumber(required_downvotes) == nil
         then
@@ -645,7 +645,7 @@ function administration:on_callback_query(callback_query, message, configuration
         end
         redis:hset(
             'chat:' .. chat_id .. ':settings',
-            'required downvotes for vote bans',
+            'banlamak için minimum oy',
             tonumber(required_downvotes)
         )
         keyboard = administration.get_voteban_keyboard(chat_id)
@@ -660,13 +660,13 @@ function administration:on_callback_query(callback_query, message, configuration
         then
             return mattata.answer_callback_query(
                 callback_query.id,
-                'The maximum number of warnings is 10.'
+                'Maksimum uyarı 10dur.'
             )
         elseif tonumber(max_warnings) < configuration.administration.warnings.minimum
         then
             return mattata.answer_callback_query(
                 callback_query.id,
-                'The minimum number of warnings is 2.'
+                'Minimum uyarı 2dir.'
             )
         elseif tonumber(max_warnings) == nil
         then
@@ -687,7 +687,7 @@ function administration:on_callback_query(callback_query, message, configuration
         local chat_id = callback_query.data:match('^(%-%d+):toggle$')
         mattata.toggle_setting(
             chat_id,
-            'use administration'
+            'admin ayarlarını kullan'
         )
         keyboard = administration.get_initial_keyboard(chat_id)
     elseif callback_query.data:match('^%-%d+:rtl:%d*$')
@@ -703,7 +703,7 @@ function administration:on_callback_query(callback_query, message, configuration
         local chat_id, page = callback_query.data:match('^(%-%d+):rules_on_join:(%d*)$')
         mattata.toggle_setting(
             chat_id,
-            'send rules on join'
+            'katılınca kuralları gönder'
         )
         keyboard = administration.get_initial_keyboard(chat_id, page)
     elseif callback_query.data:match('^%-%d+:rules_in_group:%d*$')
@@ -711,7 +711,7 @@ function administration:on_callback_query(callback_query, message, configuration
         local chat_id, page = callback_query.data:match('^(%-%d+):rules_in_group:(%d*)$')
         mattata.toggle_setting(
             chat_id,
-            'send rules in group'
+            'katılınca kuralları gönder'
         )
         keyboard = administration.get_initial_keyboard(chat_id, page)
     elseif callback_query.data:match('^%-%d+:notify_admins_actions:%d*$')
@@ -719,7 +719,7 @@ function administration:on_callback_query(callback_query, message, configuration
         local chat_id, page = callback_query.data:match('^(%-%d+):notify_admins_actions:(%d*)$')
         mattata.toggle_setting(
             chat_id,
-            'notify admins actions'
+            'admin bilgilendirme ayarları'
         )
         keyboard = administration.get_initial_keyboard(chat_id, page)
     elseif callback_query.data:match('^%-%d+:delete_joingroup_messages:%d*$')
@@ -727,7 +727,7 @@ function administration:on_callback_query(callback_query, message, configuration
         local chat_id, page = callback_query.data:match('^(%-%d+):delete_joingroup_messages:(%d*)$')
         mattata.toggle_setting(
             chat_id,
-            'delete joingroup messages'
+            'gruba katıldı mesajını sil'
         )
         keyboard = administration.get_initial_keyboard(chat_id, page)
     elseif callback_query.data:match('^%-%d+:delete_leftgroup_messages:%d*$')
@@ -735,7 +735,7 @@ function administration:on_callback_query(callback_query, message, configuration
         local chat_id, page = callback_query.data:match('^(%-%d+):delete_leftgroup_messages:(%d*)$')
         mattata.toggle_setting(
             chat_id,
-            'delete leftgroup messages'
+            'gruptan ayrıldı mesajını sil'
         )
         keyboard = administration.get_initial_keyboard(chat_id, page)
     elseif callback_query.data:match('^%-%d+:apply_global_blacklist:%d*$')
@@ -743,7 +743,7 @@ function administration:on_callback_query(callback_query, message, configuration
         local chat_id, page = callback_query.data:match('^(%-%d+):apply_global_blacklist:(%d*)$')
         mattata.toggle_setting(
             chat_id,
-            'apply global blacklist'
+            'genel banlamayı etkinleştir'
         )
         keyboard = administration.get_initial_keyboard(chat_id, page)
     elseif callback_query.data:match('^%-%d+:word_filter:%d*$')
@@ -751,12 +751,12 @@ function administration:on_callback_query(callback_query, message, configuration
         local chat_id, page = callback_query.data:match('^(%-%d+):word_filter:(%d*)$')
         mattata.toggle_setting(
             chat_id,
-            'word filter'
+            'kelime filtreleme'
         )
         keyboard = administration.get_initial_keyboard(chat_id, page)
         mattata.answer_callback_query(
             callback_query.id,
-            'You can add one or more words to the word filter by using /filter <word(s)>',
+            'Yasaklamak istediğin kelimeyi /filter komutu ile belirt.',
             true
         )
     --[[ elseif callback_query.data:match('^%-%d+:anti_porn:%d*$')
@@ -769,7 +769,7 @@ function administration:on_callback_query(callback_query, message, configuration
         keyboard = administration.get_initial_keyboard(chat_id, page)
         mattata.answer_callback_query(
             callback_query.id,
-            'Now I will punish any pornographic image',
+            'Pornografik resimlere ceza vereceğim.',
             true
         ) ]]
     elseif callback_query.data:match('^%-%d+:inactive:%d*$')
@@ -777,7 +777,7 @@ function administration:on_callback_query(callback_query, message, configuration
         local chat_id, page = callback_query.data:match('^(%-%d+):inactive:(%d*)$')
         mattata.toggle_setting(
             chat_id,
-            'remove inactive users'
+            'aktif olmayan kullanıcıları sil'
         )
         keyboard = administration.get_initial_keyboard(chat_id, page)
     elseif callback_query.data:match('^%-%d+:action:%d*$')
@@ -785,7 +785,7 @@ function administration:on_callback_query(callback_query, message, configuration
         local chat_id, page = callback_query.data:match('^(%-%d+):action:(%d*)$')
         mattata.toggle_setting(
             chat_id,
-            'ban not kick'
+            'banla'
         )
         keyboard = administration.get_initial_keyboard(chat_id, page)
     elseif callback_query.data:match('^%-%d+:antibot:%d*$')
@@ -817,7 +817,7 @@ function administration:on_callback_query(callback_query, message, configuration
         local chat_id, page = callback_query.data:match('^(%-%d+):welcome_message:(%d*)$')
         mattata.toggle_setting(
             chat_id,
-            'welcome message'
+            'hoş geldin mesajı'
         )
         keyboard = administration.get_initial_keyboard(chat_id, page)
     elseif callback_query.data:match('^%-%d+:delete_commands:%d*$')
@@ -825,7 +825,7 @@ function administration:on_callback_query(callback_query, message, configuration
         local chat_id, page = callback_query.data:match('^(%-%d+):delete_commands:(%d*)$')
         mattata.toggle_setting(
             chat_id,
-            'delete commands'
+            'komutları sil'
         )
         keyboard = administration.get_initial_keyboard(chat_id, page)
     elseif callback_query.data:match('^%-%d+:trusted_toggle:%a*$')
@@ -833,7 +833,7 @@ function administration:on_callback_query(callback_query, message, configuration
         local chat_id, trusted_setting = callback_query.data:match('^(%-%d+):trusted_toggle:(%a*)$')
         mattata.toggle_setting(
             chat_id,
-            'trusted permissions '..trusted_setting
+            'güvenilir kişi izinleri '..trusted_setting
         )
         keyboard = administration.get_trusted_permissions(chat_id)
     elseif callback_query.data:match('^%-%d+:misc_responses:%d*$')
@@ -841,7 +841,7 @@ function administration:on_callback_query(callback_query, message, configuration
         local chat_id, page = callback_query.data:match('^(%-%d+):misc_responses:(%d*)$')
         mattata.toggle_setting(
             chat_id,
-            'misc responses'
+            'geri dönüş'
         )
         keyboard = administration.get_initial_keyboard(chat_id, page)
     elseif callback_query.data:match('^%-%d+:force_group_language:%d*$')
@@ -849,7 +849,7 @@ function administration:on_callback_query(callback_query, message, configuration
         local chat_id, page = callback_query.data:match('^(%-%d+):force_group_language:(%d*)$')
         mattata.toggle_setting(
             chat_id,
-            'force group language'
+            'grup dilini bul'
         )
         if page then
             keyboard = administration.get_initial_keyboard(chat_id, page)
@@ -890,7 +890,7 @@ function administration:on_callback_query(callback_query, message, configuration
         local chat_id, page = callback_query.data:match('^(%-%d+):settings_in_group:(%d*)$')
         mattata.toggle_setting(
             chat_id,
-            'settings in group'
+            'ayarları gruba gönder'
         )
         keyboard = administration.get_initial_keyboard(chat_id, page)
     elseif callback_query.data:match('^%-%d+:delete_reply_on_action:%d*$')
@@ -898,7 +898,7 @@ function administration:on_callback_query(callback_query, message, configuration
         local chat_id, page = callback_query.data:match('^(%-%d+):delete_reply_on_action:(%d*)$')
         mattata.toggle_setting(
             chat_id,
-            'delete reply on action'
+            'yanıtlanan mesajı sil'
         )
         keyboard = administration.get_initial_keyboard(chat_id, page)
     elseif callback_query.data:match('^%-%d+:enable_admins_only:%d*$')
@@ -952,7 +952,7 @@ function administration:on_callback_query(callback_query, message, configuration
         )
         return mattata.answer_callback_query(
             callback_query.id,
-            'You will no longer be reminded that the administration plugin is disabled. To enable it, use /administration.',
+            'Yönetim ayarları kapalı bunu açmak için /administration komutunu kullanmalısın.',
             true
         )
     else
@@ -971,7 +971,7 @@ function administration.get_help_text(section)
     if not section or section == nil then
         return false
     elseif section == 'rules' then
-        return [[Ensure people behave in your group by setting rules. You can do this using the <code>/setrules</code> command, passing the rules you'd like to set as an argument. These rules can be formatted in Markdown. If you'd like to modify the rules, just repeat the same process, thus overwriting the current rules. To display the group rules, you need to use the <code>/rules</code> command. Only group administrators and moderators can use the <code>/setrules</code> command.]]
+        return [[Grupta grup kurallarini göstermek ayarlamak için bu komutu kullanmalısınız<code>/setrules</code>. ]]
     elseif section == 'welcome_message' then
         return [[Enhance the experience your group provides to its users by settings a custom welcome message. This can be done by using the <code>/setwelcome</code> command, passing the welcome message you'd like to set as an argument. This welcome message can be formatted in Markdown. You can use a few placeholders too, to personalise each welcome message. <code>$chat_id</code> will be replaced with the chat's numerical ID, <code>$user_id</code> will be replaced with the newly-joined user's numerical ID, <code>$name</code> will be replaced with the newly-joined user's name, and <code>$title</code> will be replaced with the chat title.]]
     elseif section == 'antispam' then
@@ -991,11 +991,11 @@ function administration.get_help_keyboard(chat_id)
         ['inline_keyboard'] = {
             {
                 {
-                    ['text'] = 'Rules',
+                    ['text'] = 'Kurallar',
                     ['callback_data'] = 'administration:ahelp:rules'
                 },
                 {
-                    ['text'] = 'Welcome Message',
+                    ['text'] = 'Hoş Geldin Mesajı',
                     ['callback_data'] = 'administration:ahelp:welcome_message'
                 }
             },
@@ -1005,19 +1005,19 @@ function administration.get_help_keyboard(chat_id)
                     ['callback_data'] = 'administration:ahelp:antispam'
                 },
                 {
-                    ['text'] = 'Moderation',
+                    ['text'] = 'Yönetim',
                     ['callback_data'] = 'administration:ahelp:moderation'
                 }
             },
             {
                 {
-                    ['text'] = 'Administration',
+                    ['text'] = 'Yönetim',
                     ['callback_data'] = 'administration:ahelp:administration'
                 }
             },
             {
                 {
-                    ['text'] = 'Back',
+                    ['text'] = 'Geri',
                     ['callback_data'] = 'administration:back:' .. chat_id
                 }
             }
@@ -1100,7 +1100,7 @@ function administration.format_admin_list(output, chat_id)
         mods = '-'
     end
     return string.format(
-        '<b>👤 Creator</b>\n└ %s\n\n<b>👥 Admins</b> (%d)\n%s\n<b>👥 Moderators</b> (%d)\n%s',
+        '<b>👤 Kurucu</b>\n└ %s\n\n<b>👥 Adminler</b> (%d)\n%s\n<b>👥 Yöneticiler</b> (%d)\n%s',
         creator,
         admin_count - 1,
         admins,
@@ -1114,7 +1114,7 @@ function administration.admins(message)
     if not success then
         return mattata.send_reply(
             message,
-            'I couldn\'t get a list of administrators in this chat.'
+            'Bu grubun adminler listesini alamıyorum.'
         )
     end
     return mattata.send_reply(
@@ -1130,7 +1130,7 @@ function administration.trusted(message)
     if not success then
         return mattata.send_reply(
             message,
-            'I couldn\'t get a list of trusted users in this chat.'
+            'Bu grubun güvenilir kişiler listesini alamıyorum.'
         )
     end
     local user_count = 0
@@ -1163,11 +1163,11 @@ end
 
 function administration.muted(message)
     local success = mattata.get_muted_users(message.chat.id)
-    local output = "🤐 <b>Muted Users</b> ("..#success..")\n"
+    local output = "🤐 <b>Sessize alınan kullanıcılar</b> ("..#success..")\n"
     if not success then
         return mattata.send_reply(
             message,
-            'I couldn\'t get a list of muted users in this chat.'
+            'Sessize alınan kullanıcılar listesini alamıyorum'
         )
     end
     local user_count = 0
@@ -1223,18 +1223,18 @@ function administration:on_message(message, configuration)
             elseif resolved then
                 return mattata.send_reply(
                     message,
-                    'That\'s not a valid chat!'
+                    'Yanlış giriş!'
                 )
             else
                 return mattata.send_reply(
                     message,
-                    'You don\'t appear to be an administrator in that chat!'
+                    'Bu grupta admin olmadığın için ayar yapamıyorsun.'
                 )
             end
         else
             return mattata.send_reply(
                 message,
-                'My administrative functionality can only be used in groups/channels! If you\'re looking for help with using my administrative functionality, check out the "Administration" section of /help! Alternatively, if you wish to manage the settings for a group you administrate, you can do so here by using the syntax /administration <chat>.'
+                'Benim grup yönetim ayarlarımı görmek için /administration komutunu kullanmanız gerekir.'
             )
         end
     end
@@ -1268,7 +1268,7 @@ function administration:on_message(message, configuration)
         local recipient = message.from.id
         if mattata.get_setting(
             message.chat.id,
-            'settings in group'
+            'ayarları gruba gönder'
         )
         then
             recipient = message.chat.id
@@ -1276,7 +1276,7 @@ function administration:on_message(message, configuration)
         local success = mattata.send_message(
             recipient,
             string.format(
-                'Use the keyboard below to adjust the administration settings for <b>%s</b>:',
+                'Klavyeden yapmak istediğiniz ayarları seçiniz <b>%s</b>:',
                 mattata.escape_html(message.chat.title)
             ),
             'html',
@@ -1290,14 +1290,14 @@ function administration:on_message(message, configuration)
         then
             return mattata.send_reply(
                 message,
-                'Please send me a [private message](https://t.me/' .. self.info.username:lower() .. '), so that I can send you this information.',
+                'Lütfen bana  [ozel mesaj](https://t.me/' .. self.info.username:lower() .. '),sana daha çok bilgi vereyim.',
                 'markdown'
             )
         elseif recipient == message.from.id
         then
             return mattata.send_reply(
                 message,
-                'I have sent you the information you requested via private chat.'
+                'Gerekli bilgileri özel mesajdan gönderdim.'
             )
         end
         return success
